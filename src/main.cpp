@@ -1710,15 +1710,15 @@ CAmount GetBlockValue(int nHeight)
     } else if (nHeight <= 5000) {
       nSubsidy = 0.01 * COIN;
     } else if (nHeight > 5000 && nHeight <= 10000) {
-      nSubsidy = 0.2 * COIN;
+      nSubsidy = 1 * COIN;
     } else if (nHeight > 10000 && nHeight <= 30000) {
-      nSubsidy = 5 * COIN;
+      nSubsidy = 3 * COIN;
     } else if (nHeight > 30000 && nHeight <= 60000) {
-      nSubsidy = 0.1 * COIN;
-    } else if (nHeight > 60000 && nHeight <= 150000) {
-      nSubsidy = 0.5 * COIN;
-    } else if (nHeight > 150000 && nHeight <= 200000) {
       nSubsidy = 5 * COIN;
+    } else if (nHeight > 60000 && nHeight <= 150000) {
+      nSubsidy = 8 * COIN;
+    } else if (nHeight > 150000 && nHeight <= 200000) {
+      nSubsidy = 10 * COIN;
     } else if (nHeight > 200000 && nHeight <= 250000) { // soft fork - protocol 70013 should be enforced before block 200k
       nSubsidy = 150 * COIN;
     } else if (nHeight > 250000 && nHeight <= 500000) {
@@ -1760,30 +1760,24 @@ int64_t GetMasternodePayment(int nHeight, unsigned mnlevel, int64_t blockValue)
     if (nHeight <= Params().StartMNPaymentsBlock())
         return 0;
 
-    if (nHeight > 200000) {
-      switch(mnlevel)
-      {
-          case 1:
-              return blockValue * 0.1;
-
-          case 2:
-              return blockValue * 0.25;
-
-          case 3:
-              return blockValue * 0.4;
-      }
-    } else {
-      switch(mnlevel)
-      {
-          case 1:
-              return blockValue * 0.2;
-
-          case 2:
-              return blockValue * 0.3;
-
-          case 3:
-              return blockValue * 0.4;
-      }
+    if (nHeight >= Params().StartMNPaymentsBlock() && nHeight < 60000) {
+        switch(mnlevel) {
+            case 1: return blockValue * 0.10;
+            case 2: return blockValue * 0.25;
+            case 3: return blockValue * 0.4;
+        }
+    } else if (nHeight >= 60000 && nHeight < 200000) {
+        switch(mnlevel) {
+            case 1: return blockValue * 0.05;
+            case 2: return blockValue * 0.25;
+            case 3: return blockValue * 0.45;
+        }		
+  } else if (nHeight >= 200000) {
+        switch(mnlevel) {
+            case 1: return blockValue * 0.10; 
+            case 2: return blockValue * 0.25;
+            case 3: return blockValue * 0.4;
+        }
     }
 
     return 0;
