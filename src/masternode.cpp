@@ -332,11 +332,17 @@ unsigned CMasternode::Level(CAmount vin_val, int blockHeight)
       }
     } else if (blockHeight >= 60000 && blockHeight < 150000) {
       switch(vin_val) {
-          case 3000 * COIN: return 1;
+          case 2000 * COIN: return 1;
+          case 3000 * COIN: return 2;
+          case 5000 * COIN: return 3;
+      }
+    } else if (blockHeight >= 150000 && blockHeight < 200000) {
+      switch(vin_val) {
+          case 3500 * COIN: return 1;
           case 4000 * COIN: return 2;
           case 6000 * COIN: return 3;
       }
-    } else if (blockHeight >= 200000 && blockHeight < 250000) { // soft fork - protocol 70013 should be enforced before block 200k
+	  } else if (blockHeight >= 200000 && blockHeight < 250000) { // soft fork - protocol 70018 should be enforced before block 200k
       switch(vin_val) {
           case 5000 * COIN: return 1;
           case 6000 * COIN: return 2;
@@ -350,51 +356,51 @@ unsigned CMasternode::Level(CAmount vin_val, int blockHeight)
       }
     } else if (blockHeight >= 500000 && blockHeight < 750000) {
       switch(vin_val) {
-          case 10000 * COIN: return 1;
-          case 15000 * COIN: return 2;
-          case 20000 * COIN: return 3;
+          case 7000 * COIN: return 1;
+          case 8000 * COIN: return 2;
+          case 9000 * COIN: return 3;
       }
  } else if (blockHeight >= 750000 && blockHeight < 1000000) {
       switch(vin_val) {
-          case 80000 * COIN: return 1;
-          case 90000 * COIN: return 2;
-          case 100000 * COIN: return 3;
+          case 8000 * COIN: return 1;
+          case 9000 * COIN: return 2;
+          case 10000 * COIN: return 3;
       }
     } else if (blockHeight >= 1000000 && blockHeight < 1250000) {
       switch(vin_val) {
-          case 90000 * COIN: return 1;
-          case 100000 * COIN: return 2;
-          case 125000 * COIN: return 3;
+          case 9000 * COIN: return 1;
+          case 10000 * COIN: return 2;
+          case 12500 * COIN: return 3;
       }
     } else if (blockHeight >= 1250000 && blockHeight < 1500000) {
       switch(vin_val) {
-          case 100000 * COIN: return 1;
-          case 125000 * COIN: return 2;
-          case 150000 * COIN: return 3;
+          case 10000 * COIN: return 1;
+          case 12500 * COIN: return 2;
+          case 15000 * COIN: return 3;
       }
     } else if (blockHeight >= 1500000 && blockHeight < 2000000) {
       switch(vin_val) {
-          case 125000 * COIN: return 1;
-          case 150000 * COIN: return 2;
-          case 200000 * COIN: return 3;
+          case 12500 * COIN: return 1;
+          case 15000 * COIN: return 2;
+          case 20000 * COIN: return 3;
       }
     } else if (blockHeight >= 2000000 && blockHeight < 2500000) {
       switch(vin_val) {
-          case 150000 * COIN: return 1;
-          case 200000 * COIN: return 2;
-          case 250000 * COIN: return 3;
+          case 15000 * COIN: return 1;
+          case 20000 * COIN: return 2;
+          case 25000 * COIN: return 3;
       }
     } else if (blockHeight >= 2500000 && blockHeight < 3000000) {
       switch(vin_val) {
-          case 200000 * COIN: return 1;
-          case 250000 * COIN: return 2;
-          case 350000 * COIN: return 3;
+          case 20000 * COIN: return 1;
+          case 25000 * COIN: return 2;
+          case 35000 * COIN: return 3;
       }
     } else {
       switch(vin_val) {
-          case 250000 * COIN: return 1;
-          case 350000 * COIN: return 2;
-          case 400000 * COIN: return 3;
+          case 25000 * COIN: return 1;
+          case 35000 * COIN: return 2;
+          case 40000 * COIN: return 3;
       }
     }
 
