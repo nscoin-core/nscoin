@@ -157,6 +157,7 @@ public:
         vSeeds.push_back(CDNSSeedData("seed2.nscoin.us", "seed2.nscoin.us"));     // Primary DNS Seeder
         vSeeds.push_back(CDNSSeedData("seed3.nscoin.us", "seed3.nscoin.us"));     // Primary DNS Seeder
         vSeeds.push_back(CDNSSeedData("seeder.nscoin.us", "seeder.nscoin.us"));     // seeder.nscoin.us
+		vSeeds.push_back(CDNSSeedData("207.148.70.156", "207.148.70.156"));     // seeder.nscoin.us	
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 53); // N
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 54);
