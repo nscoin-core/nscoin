@@ -55,13 +55,15 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (0, uint256("0x00000a6cd288d441ae62c28fdbecf87fab6c789f50f3a5774513dfbe9a5d9090"))
-	    (25850, uint256("0xc8586802afd1fe027b9013721bcc204995e66f02351b0cf43636a9ea7c9525ac"))
- 
-	 ;
+	(25850, uint256("0xc8586802afd1fe027b9013721bcc204995e66f02351b0cf43636a9ea7c9525ac"))
+	(60000, uint256("0x100fcbfe9599275218f52d1414fe166fca24233028b8349dc7b651d0a25e3500"))
+	(60083, uint256("0x580dc42f882e6d1f0256c1518a2d8efbb47726511c03b9dc9224a76c6c436568"))
+
+	;
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1584031457, // * UNIX timestamp of last checkpoint block
+    1593619519, // * UNIX timestamp of last checkpoint block
     360422,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     500        // * estimated number of transactions per day after checkpoint
@@ -157,7 +159,7 @@ public:
         vSeeds.push_back(CDNSSeedData("seed2.nscoin.us", "seed2.nscoin.us"));     // Primary DNS Seeder
         vSeeds.push_back(CDNSSeedData("seed3.nscoin.us", "seed3.nscoin.us"));     // Primary DNS Seeder
         vSeeds.push_back(CDNSSeedData("seeder.nscoin.us", "seeder.nscoin.us"));     // seeder.nscoin.us
-
+		vSeeds.push_back(CDNSSeedData("207.148.70.156", "207.148.70.156"));     // seeder.nscoin.us	
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 53); // N
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 54);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 117); // p
